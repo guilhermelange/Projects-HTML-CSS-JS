@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MathBlog</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<!-- -->
+		<script type="text/javascript">
+			
+	function calculo_bhaskara() {
+
+	  var valora = parseInt(prompt("Digite o valor de A: "));
+      var valorb = parseInt(prompt("Digite o valor de B: "));
+      var valorc = parseInt(prompt("Digite o valor de C: "));
+
+      var quadradodeb = valorb * valorb;
+      var delta = quadradodeb - 4 * valora * valorc;
+      var resultadofinal = ""
+      var continua = 0;
+
+      
+
+      if (delta < 0) {
+        resultadofinal += "Não é possível calcular pois o Delta é menor que zero.<br> <hr/> <br><strong>Valor de Delta:</strong> " + delta + "<hr/>";
+        continua += 1;
+        //return;
+      }
+
+      if (delta == 0) {
+        resultadofinal += "O Delta é zero, portando os valores de X1 e X2 serão iguais.<br>";
+        continua += 1;
+        //return;
+      }
+
+      console.log(continua);
+
+      var valordebneg = valorb * (-1); /* INVERTE O SINAL DO B */
+      var raizdedelta = Math.sqrt(delta); /* CALCULA A RAIZ DO DELTA, NO CASO, FEITO PELA FUNÇÃO Math.sqrt(variável) */
+      var divisor = 2 * valora; /* CALCULA O DIVISOR, NO CASO QUE DIVIDIRÁ B + RAIZ DE DELTA */
+      var resultadox1 = (valordebneg + raizdedelta) / divisor; /* CALCULA O X1 */
+      var resultadox2 = (valordebneg - raizdedelta) / divisor; /* CALCULA O X2 */
+
+      var valora_ = "";
+      var valorb_ = "";
+      var valorc_ = "";
+
+      valora_ = valora;
+
+     if (valorb > 0) 
+     	{ valorb_ = "+" + valorb;} 
+     else 
+     	{ valorb_ = valorb; } 
+
+     if (valorc > 0) 
+     	{ valorc_ = "+" + valorc;}
+     else 
+     	{ valorc_ = valorc;} 
+
+
+      if (continua == 0)  {
+	      resultadofinal += "<strong> Equação: </strong>" + valora_ + "x² " + valorb_ + "x " + valorc_ + "<br><hr/><br>";
+	      resultadofinal += "<h4>Primeiro Passo: Definir o Delta</h4>";
+	      resultadofinal += "∆ = b² - 4ac <br>";
+	      resultadofinal += "∆ = (" + valorb + ")² - 4 * " + valora + " * " + valorc;
+	      resultadofinal += "<br>∆ = " + delta;
+	      resultadofinal += "<hr/>";
+	      resultadofinal += "<h4>Segundo Passo: Aplicar as demais variáveis na fórmula</h4>";
+	      resultadofinal += "X = -b ± √∆ <br>__________________<br> 2a";
+	      resultadofinal += "<br><br><br> X = " + valordebneg + " ± " + raizdedelta + "<br>____________________<br>      2 * " + valora;
+	      resultadofinal += "<hr/>";
+	      resultadofinal += "<h4>Terceiro Passo: Definir x' e x'' </h4>";
+	      resultadofinal += "X' = " + valordebneg + " + " + raizdedelta + " / " + divisor;
+	      resultadofinal += "<br>X' = " + resultadox1;
+	      resultadofinal += "<br><br>X'' = " + valordebneg + " - " + raizdedelta + " / " + divisor;
+	      resultadofinal += "<br>X'' = " + resultadox2;
+ 		}
+
+ 	  document.getElementById("result").innerHTML = resultadofinal; 
+ 	  document.getElementById("postagem_v2").style.display="block";
+
+ 	  window.scrollTo(40, 475);
+		}
+
+
+
+		</script>
+	</head>
+	<body>
+
+		<div id="area-cabecalho">
+			<div id="area-logo">
+				<a href="" style="background: none;"><h1>Math<span class="branco">Blog</span></h1></a>
+			</div>
+ 			<div id="area-menu">
+				<a href="teste.html">Fórmulas</a>
+				<a href="teste.html">Teoremas</a>
+				<a href="teste.html">Exercícios</a>
+			</div>
+			
+		</div>
+		<div id="area-principal">
+			<div id="area-postagens">
+				<div class="postagem">
+					<h2>Fórmula de Bhaskara1</h2>
+					<span class="data-postagem">Postado em 20 de março</span>
+					<img width="620" src="imagens/bask.png">
+					<input type="button" value="Calcular" onclick="calculo_bhaskara()" class="botton1">
+				</div>
+				<div id="postagem_v2">
+						<h2>Resultado da Equação - Passo a Passo</h2>		 			
+						<p id="result" style="border: 1px solid #CCC; padding: 10px"> </p>
+				</div>
+			 </div>
+			 <div id="area-lateral">
+			 	<div class="conteudo-lateral">
+			 		<h3>Postagens Recentes</h3>
+			 		<div class="texto-lateral">
+			 			<p> teste adfkln jasdh kasjd jkasfks safjkghsk sjfh
+			 			</p>
+			 			<a href="">Leia Mais</a>
+			 		</div>
+			 		<div class="texto-lateral" style="border-bottom: none;">
+			 			<p> teste adfkln jasdh kasjd jkasfks safjkghsk sjfh
+			 			</p>
+			 			<a href="">Leia Mais</a>
+			 		</div>
+			 	</div>
+			 	<div class="conteudo-lateral">
+			 		<h3>Categorias</h3>
+			 		<a href="teste.html">Fórmulas</a><br>
+					<a href="teste.html">Teoremas</a><br>
+					<a href="teste.html">Exercícios</a>
+			 	</div>
+			  </div>
+			  <div id="rodape">
+			  	Todos os Direitos Reservados
+			  </div>
+
+		</div>
+
+	</body>
+</html>
